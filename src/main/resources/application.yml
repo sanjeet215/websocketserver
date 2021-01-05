@@ -1,0 +1,28 @@
+server:
+  port: 8084
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest  
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 8   
+        retry:
+          enabled: true
+          initial-interval: 3s
+          max-attempts: 6
+          max-interval: 10s
+          multiplier: 2
+
+  cloud:
+    stream:
+      bindings:
+        convertedMsgSource.destination: covertedMessagesSocket  
+        
+        
+        
+idle.interval: 900000        
