@@ -25,7 +25,7 @@ public class TransformedMessage {
 	private int fuel;
 	private int speed;
 
-	// Derieved Fields
+	// Derived Fields
 	private String vehicleNumber;
 	private String vehicleType;
 	private String driverName;
@@ -51,9 +51,10 @@ public class TransformedMessage {
 	boolean idleEngineOff;
 	boolean vehicleMovingFlag;
 	boolean alertFlag;
-	boolean currenFlag;
+	boolean currentFlag;
 	boolean geoViolation;
 	boolean speedViolation;
+	boolean delayedMessageFlag;
 
 	// Total Number of Messages
 	int messageCounter;

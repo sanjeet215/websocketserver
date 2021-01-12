@@ -7,5 +7,5 @@ import com.asiczen.websocket.model.AlertMessage;
 @Service
 public interface ProcessAlertMessages {
 
-	public void sendalertMessage(AlertMessage message);
+	public void sendAlertMessage(AlertMessage message);
 }

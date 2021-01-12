@@ -35,7 +35,7 @@ public class SocketMessage {
 	private boolean idleEngineOff;
 	private boolean vehicleMovingFlag;
 	private boolean alertFlag;
-	private boolean currenFlag;
+	private boolean currentFlag;
 	
 	private Date dateTimestamp;
 }

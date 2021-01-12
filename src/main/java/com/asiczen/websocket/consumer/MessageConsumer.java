@@ -16,21 +16,21 @@ import lombok.extern.slf4j.Slf4j;
 public class MessageConsumer {
 
 	@Autowired
-	ProcessMessages mesageProcessService;
+	ProcessMessages messageProcessService;
 	
 	@Autowired
 	ProcessAlertMessages alertProcessor;
 
 	@RabbitListener(queues = "covertedMessagesSocket")
 	public void onRecievedMessage(TransformedMessage message) {
-		log.trace("Mesage Read is : {}", message.toString());
-		mesageProcessService.processMessage(message);
+		log.trace("Message Read is : {}", message.toString());
+		messageProcessService.processMessage(message);
 
 	}
 	
 	
 	@RabbitListener(queues = "alert-messages")
 	public void onAlertMessage(AlertMessage message) {
-		alertProcessor.sendalertMessage(message);
+		alertProcessor.sendAlertMessage(message);
 	}
 }
