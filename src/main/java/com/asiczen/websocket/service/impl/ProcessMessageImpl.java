@@ -28,10 +28,7 @@ public class ProcessMessageImpl implements ProcessMessages {
 		BeanUtils.copyProperties(message, socketMessage);
 
 		socketMessage.setImeiNumber(message.getImei());
-		// Add Date to String conversion
-		socketMessage.setCurrenFlag(true);
-
-		// Round the values Before sending them
+		socketMessage.setCurrentFlag(true);
 
 		socketMessage.setTopSpeed(message.getTopSpeed().setScale(0, RoundingMode.HALF_EVEN));
 		socketMessage.setCalculatedDailyDistance(message.getCalculatedDailyDistance().setScale(2, RoundingMode.HALF_EVEN));
