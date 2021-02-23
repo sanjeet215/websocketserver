@@ -12,7 +12,7 @@ public class ProcessTripMessagesImpl implements ProcessTripMessages {
 
     @Override
     public void consumeTripMessages(TripMessage tripMessage) {
-        this.messagingTemplate.convertAndSend("/topic/" + tripMessage.getOrgRefName(), tripMessage);
-        this.messagingTemplate.convertAndSend("/topic/" + tripMessage.getVehicleNumber(), tripMessage);
+        this.messagingTemplate.convertAndSend("/trip/topic/" + tripMessage.getOrgRefName(), tripMessage);
+        this.messagingTemplate.convertAndSend("/trip/topic/" + tripMessage.getVehicleNumber(), tripMessage);
     }
 }
