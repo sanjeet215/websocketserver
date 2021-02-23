@@ -1,5 +1,7 @@
 package com.asiczen.websocket.consumer;
 
+import com.asiczen.websocket.model.TripMessage;
+import com.asiczen.websocket.service.ProcessTripMessages;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,6 +23,9 @@ public class MessageConsumer {
 	@Autowired
 	ProcessAlertMessages alertProcessor;
 
+	@Autowired
+	ProcessTripMessages processTripMessages;
+
 	@RabbitListener(queues = "covertedMessagesSocket")
 	public void onRecievedMessage(TransformedMessage message) {
 		log.trace("Message Read is : {}", message.toString());
@@ -32,5 +37,12 @@ public class MessageConsumer {
 	@RabbitListener(queues = "alert-messages")
 	public void onAlertMessage(AlertMessage message) {
 		alertProcessor.sendAlertMessage(message);
+	}
+
+
+
+	@RabbitListener(queues = "trip-messages")
+	public void onTripMessageArrival(TripMessage message) {
+		processTripMessages.consumeTripMessages(message);
 	}
 }
