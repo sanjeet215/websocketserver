@@ -18,7 +18,7 @@ public class ProcessAlertMessagesImpl implements ProcessAlertMessages {
 
 	@Override
 	public void sendAlertMessage(AlertMessage message) {
-		this.messageTemplate.convertAndSend("/topic/" + message.getOrgRefName(), message);
+		this.messageTemplate.convertAndSend("/topic/" + message.getOrgRefName() + "/alerts", message);
 	}
 
 }
