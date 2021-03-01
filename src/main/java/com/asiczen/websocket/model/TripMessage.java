@@ -12,6 +12,10 @@ import lombok.NoArgsConstructor;
 public class TripMessage {
     private String vehicleNumber;
     private String orgRefName;
+    private double totalDistance;
+    private double travelDistance;
+    private double lat;
+    private double lng;
     private boolean isDelayed; // if true then there is a delay
     private boolean isStartLocationSame; // If start location same then true else false
     private int distanceTravelledInPercentage;
